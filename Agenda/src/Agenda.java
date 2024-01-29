@@ -22,7 +22,6 @@ public class Agenda {
         BufferedReader reader = new BufferedReader(new FileReader(arquivo));
         String linha;
 
-        // Lê cada linha do arquivo
         while ((linha = reader.readLine()) != null) {
             String[] informacoes = linha.split("\\|");
             Contato contato = new Contato(informacoes[1], informacoes[2], informacoes[3], Long.parseLong(informacoes[4]));
@@ -144,7 +143,6 @@ public class Agenda {
 
     public void salvar(){
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(nomeArquivo))) {
-            // Escreve linhas no arquivo
             for(Contato contato : contatos){
                 String linhaParaSalvar = "";
                 linhaParaSalvar += contato.getId() + "|" + contato.getNome() + "|" + contato.getSobreNome();
