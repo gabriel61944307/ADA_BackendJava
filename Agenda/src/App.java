@@ -21,27 +21,11 @@ public class App {
         while (opcao != 5) {
             switch (opcao) {
                 case 1:
-                    System.out.print("Digite o nome: ");
-                    sc.nextLine();
-                    String nome = sc.nextLine();
-
-                    System.out.print("Digite o sobrenome: ");
-                    String sobrenome = sc.nextLine();
-
-                    System.out.print("DDD: ");
-                    String ddd = sc.next();
-
-                    System.out.print("Número: ");
-                    long numero = sc.nextLong();
-
-                    agenda.adicionarContato(nome, sobrenome, ddd, numero);
+                    agenda.adicionarContato(sc);
                     break;
 
                 case 2:
-                    System.out.print("ID do contato que deseja remover: ");
-                    Long idRemover = sc.nextLong();
-
-                    agenda.removerContato(idRemover);
+                    agenda.removerContato(sc);
                     break;
 
                 case 3:
@@ -55,9 +39,11 @@ public class App {
             if(opcao > 5 || opcao < 1) {
                 System.out.println("Opção escolhida invalida.");
             }
-            System.out.println("Escolha uma opção: (1:Adicionar, 2:Remover,  3:Editar, 4:Imprimir, 5:Sair)");
+            System.out.println("Escolha uma opção de contato: (1:Adicionar, 2:Remover,  3:Editar, 4:Imprimir, 5:Sair)");
             opcao = sc.nextInt();
         }
 
+        agenda.salvar();
+        sc.close();
     }
 }

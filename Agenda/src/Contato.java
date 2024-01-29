@@ -20,6 +20,11 @@ public class Contato {
     public Long getId() {
         return id;
     }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }
@@ -34,6 +39,10 @@ public class Contato {
 
     public void setSobreNome(String sobreNome) {
         this.sobreNome = sobreNome;
+    }
+
+    public List<Telefone> getTelefones() {
+        return telefones;
     }
 
     public void addTelefone(Telefone telefone) {

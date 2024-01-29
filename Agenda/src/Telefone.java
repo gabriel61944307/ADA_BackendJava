@@ -14,6 +14,14 @@ public class Telefone {
         this.numero = numero;
     }
 
+    public String getDdd() {
+        return ddd;
+    }
+
+    public Long getNumero() {
+        return numero;
+    }
+
     static boolean telefoneRepetido(String telefone){
         for (String telefoneJaCadastrado : todosTelefones){
             if(telefoneJaCadastrado.equals(telefone)) return true;
