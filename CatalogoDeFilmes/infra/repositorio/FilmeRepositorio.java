@@ -63,22 +63,14 @@ public class FilmeRepositorio implements InterfaceRepositorio{
         }
     }
 
-    public boolean adicionarAtor(Long codigoFilme, Long codigoAtor){
-        Ator ator = (Ator) atorRepositorio.buscarPorCodigo(codigoAtor);
-        if(ator != null && listaFilmes.containsKey(codigoFilme)){
-            listaFilmes.get(codigoFilme).addAtor(ator);
-            return true;
+    public void listarPorNome(String nome){
+        String nomeMaiusculo = nome.toUpperCase();
+        for(Map.Entry<Long, Filme> filme : listaFilmes.entrySet()){
+            String filmeMaiusculo = filme.getValue().getNome().toUpperCase();
+            if(filmeMaiusculo.contains(nomeMaiusculo)){
+                System.out.println(filme.getValue() + "\n");
+            }
         }
-        return false;
-    }
-
-    public boolean adicionarDiretor(Long codigoFilme, Long codigoDiretor){
-        Diretor diretor = (Diretor) diretorRepositorio.buscarPorCodigo(codigoDiretor);
-        if(diretor != null && listaFilmes.containsKey(codigoFilme)){
-            listaFilmes.get(codigoFilme).addDiretor(diretor);
-            return true;
-        }
-        return false;
     }
 
 }

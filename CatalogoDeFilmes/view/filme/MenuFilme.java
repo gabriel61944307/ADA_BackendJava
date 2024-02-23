@@ -13,13 +13,14 @@ public class MenuFilme extends AbstractMenu {
                 "2 - Editar",
                 "3 - Excluir",
                 "4 - Listar",
+                "5 - Listar por nome",
                 "0 - Voltar",
         });
     }
 
     @Override
     protected Boolean validOption(Integer option) {
-        return option >= 1 && option <= 4;
+        return option >= 1 && option <= 5;
     }
 
     @Override
@@ -36,6 +37,9 @@ public class MenuFilme extends AbstractMenu {
                 break;
             case 4:
                 ListarFilme.execute();
+                break;
+            case 5:
+                ListarFilmePorNome.execute();
                 break;
         }
     }
