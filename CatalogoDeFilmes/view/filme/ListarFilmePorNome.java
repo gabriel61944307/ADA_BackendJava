@@ -1,6 +1,6 @@
 package CatalogoDeFilmes.view.filme;
 
-import CatalogoDeFilmes.infra.repositorio.FilmeRepositorio;
+import CatalogoDeFilmes.repositorio.FilmeRepositorio;
 import CatalogoDeFilmes.view.ScannerSingleton;
 
 import java.util.Scanner;

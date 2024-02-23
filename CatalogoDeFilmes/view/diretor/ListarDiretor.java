@@ -1,6 +1,6 @@
 package CatalogoDeFilmes.view.diretor;
 
-import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
+import CatalogoDeFilmes.repositorio.DiretorRepositorio;
 
 public class ListarDiretor {
     private static DiretorRepositorio diretorRepositorio = new DiretorRepositorio();

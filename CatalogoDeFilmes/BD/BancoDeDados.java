@@ -1,4 +1,4 @@
-package CatalogoDeFilmes.infra.BD;
+package CatalogoDeFilmes.BD;
 
 import CatalogoDeFilmes.modelo.Ator;
 import CatalogoDeFilmes.modelo.Diretor;

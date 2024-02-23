@@ -1,6 +1,6 @@
 package CatalogoDeFilmes.view.filme;
 
-import CatalogoDeFilmes.infra.repositorio.FilmeRepositorio;
+import CatalogoDeFilmes.repositorio.FilmeRepositorio;
 
 public class ListarFilme {
     private static FilmeRepositorio filmeRepositorio = new FilmeRepositorio();

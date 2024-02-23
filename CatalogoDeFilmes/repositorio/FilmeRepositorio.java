@@ -1,12 +1,11 @@
-package CatalogoDeFilmes.infra.repositorio;
+package CatalogoDeFilmes.repositorio;
 
-import CatalogoDeFilmes.infra.BD.BancoDeDados;
+import CatalogoDeFilmes.BD.BancoDeDados;
 import CatalogoDeFilmes.modelo.Ator;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.Filme;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 

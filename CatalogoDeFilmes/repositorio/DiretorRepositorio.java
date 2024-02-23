@@ -1,7 +1,7 @@
-package CatalogoDeFilmes.infra.repositorio;
+package CatalogoDeFilmes.repositorio;
 
 import CatalogoDeFilmes.exception.ModeloException;
-import CatalogoDeFilmes.infra.BD.BancoDeDados;
+import CatalogoDeFilmes.BD.BancoDeDados;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.Filme;
 

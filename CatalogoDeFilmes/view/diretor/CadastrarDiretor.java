@@ -1,7 +1,7 @@
 package CatalogoDeFilmes.view.diretor;
 
 import CatalogoDeFilmes.factory.DiretorFactory;
-import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
+import CatalogoDeFilmes.repositorio.DiretorRepositorio;
 import CatalogoDeFilmes.view.ScannerSingleton;
 
 import java.util.Scanner;

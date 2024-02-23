@@ -1,9 +1,9 @@
 package CatalogoDeFilmes.view.filme;
 
 import CatalogoDeFilmes.exception.ModeloException;
-import CatalogoDeFilmes.infra.repositorio.AtorRepositorio;
-import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
-import CatalogoDeFilmes.infra.repositorio.FilmeRepositorio;
+import CatalogoDeFilmes.repositorio.AtorRepositorio;
+import CatalogoDeFilmes.repositorio.DiretorRepositorio;
+import CatalogoDeFilmes.repositorio.FilmeRepositorio;
 import CatalogoDeFilmes.modelo.Filme;
 import CatalogoDeFilmes.view.ScannerSingleton;
 

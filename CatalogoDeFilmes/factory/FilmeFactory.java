@@ -1,8 +1,8 @@
 package CatalogoDeFilmes.factory;
 
 import CatalogoDeFilmes.exception.DiretorException;
-import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
-import CatalogoDeFilmes.infra.repositorio.InterfaceRepositorio;
+import CatalogoDeFilmes.repositorio.DiretorRepositorio;
+import CatalogoDeFilmes.repositorio.InterfaceRepositorio;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.Filme;
 

@@ -1,4 +1,4 @@
-package CatalogoDeFilmes.infra.repositorio;
+package CatalogoDeFilmes.repositorio;
 
 public interface InterfaceRepositorio {
     boolean gravar(Object objeto);

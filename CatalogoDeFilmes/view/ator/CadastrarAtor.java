@@ -1,7 +1,7 @@
 package CatalogoDeFilmes.view.ator;
 
 import CatalogoDeFilmes.factory.AtorFactory;
-import CatalogoDeFilmes.infra.repositorio.AtorRepositorio;
+import CatalogoDeFilmes.repositorio.AtorRepositorio;
 import CatalogoDeFilmes.view.ScannerSingleton;
 
 import java.util.Scanner;

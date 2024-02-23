@@ -1,7 +1,7 @@
 package CatalogoDeFilmes.view.diretor;
 
 import CatalogoDeFilmes.exception.ModeloException;
-import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
+import CatalogoDeFilmes.repositorio.DiretorRepositorio;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.view.ScannerSingleton;
 
