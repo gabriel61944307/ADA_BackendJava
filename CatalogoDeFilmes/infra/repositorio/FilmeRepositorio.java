@@ -24,8 +24,12 @@ public class FilmeRepositorio implements InterfaceRepositorio{
 
     @Override
     public boolean atualizar(Long codigo, Object objeto) {
-        Ator ator = (Ator) objeto;
-        return adicionarAtor(codigo, ator.getCodigo());
+        Filme filme = (Filme) objeto;
+        if(listaFilmes.containsKey(codigo)){
+            listaFilmes.put(codigo, filme);
+            return true;
+        }
+        return false;
     }
 
     @Override

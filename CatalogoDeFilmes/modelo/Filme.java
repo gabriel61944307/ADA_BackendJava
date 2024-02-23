@@ -33,10 +33,6 @@ public class Filme {
         return orcamento;
     }
 
-    public void setOrcamento(BigDecimal orcamento) {
-        this.orcamento = orcamento;
-    }
-
     public String getDescricao() {
         return descricao;
     }

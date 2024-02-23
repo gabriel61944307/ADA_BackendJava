@@ -10,7 +10,7 @@ public class CadastrarAtor {
     private static AtorRepositorio atorRepositorio = new AtorRepositorio();
     private static Scanner scanner = ScannerSingleton.instance().getScanner();
     public static void execute(){
-        System.out.println("Digite o nome:");
+        System.out.println("Digite o nome do ator:");
         String nome = scanner.nextLine();
         System.out.println("Digite a data de nascimento (dd/mm/aaaa):");
         String dataNasc = scanner.nextLine();

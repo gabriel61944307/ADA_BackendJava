@@ -2,6 +2,7 @@ package CatalogoDeFilmes.view;
 
 import CatalogoDeFilmes.view.ator.MenuAtor;
 import CatalogoDeFilmes.view.diretor.MenuDiretor;
+import CatalogoDeFilmes.view.filme.MenuFilme;
 
 public class MenuPrincipal extends AbstractMenu{
     public MenuPrincipal(){
@@ -25,7 +26,7 @@ public class MenuPrincipal extends AbstractMenu{
                 break;
             case 2: new MenuDiretor().execute();
                 break;
-            case 3:
+            case 3: new MenuFilme().execute();
                 break;
             case 0:
                 System.exit(1);
