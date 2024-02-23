@@ -6,17 +6,16 @@ import java.util.List;
 
 public class Diretor extends Pessoa{
     private List<Filme> filmesDirigidos = new ArrayList<Filme>();
-    Diretor(String nome, LocalDate dataNascimento, String pais, String estadoProvinciaRegiao, String cidadeDistrito) {
-        super(nome, dataNascimento, pais, estadoProvinciaRegiao, cidadeDistrito);
+    public Diretor(String nome, LocalDate dataNascimento, LocalNascimento localNascimento) {
+        super(nome, dataNascimento, localNascimento);
     }
 
-    public void adicionarFilme(Filme filme){
-        filmesDirigidos.add(filme);
-    }
-    public void listarFilmes(){
-        for(Filme filme: filmesDirigidos){
-            System.out.println(filme + "\n");
-        }
+    @Override
+    public String toString() {
+        String informacoes = "Nome: " + getNome() + "\n";
+        informacoes += "Data de nascimento: " + getDataNascimento() + "\n";
+        informacoes += "Local de nascimento: " + getLocalNascimento() + "\n";
+        return  informacoes;
     }
 
 }

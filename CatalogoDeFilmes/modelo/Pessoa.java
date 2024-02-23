@@ -9,10 +9,10 @@ public class Pessoa {
     private LocalDate dataNascimento;
     private LocalNascimento localNascimento;
 
-    Pessoa(String nome, LocalDate dataNascimento, String pais, String estadoProvinciaRegiao, String cidadeDistrito){
+    Pessoa(String nome, LocalDate dataNascimento, LocalNascimento localNascimento){
         this.nome = nome;
         this.dataNascimento = dataNascimento;
-        this.localNascimento = new LocalNascimento(pais, estadoProvinciaRegiao, cidadeDistrito);
+        this.localNascimento = localNascimento;
         this.codigo = proximoCodigo;
         proximoCodigo++;
     }

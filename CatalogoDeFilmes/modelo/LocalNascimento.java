@@ -5,7 +5,7 @@ public class LocalNascimento {
     private String estadoProvinciaRegiao;
     private String cidadeDistrito;
 
-    LocalNascimento(String pais, String estadoProvinciaRegiao, String cidadeDistrito){
+    public LocalNascimento(String pais, String estadoProvinciaRegiao, String cidadeDistrito){
         this.pais = pais;
         this.estadoProvinciaRegiao = estadoProvinciaRegiao;
         this.cidadeDistrito = cidadeDistrito;
