@@ -33,7 +33,7 @@ public class EditarFilme {
 
             String codigoDiretor = "";
             do {
-                System.out.println("Digite o código de um novo diretor:");
+                System.out.println("Digite o código de um novo co-diretor:");
                 codigoDiretor = scanner.nextLine();
                 if (codigoDiretor != "") {
                     filmeASerAtualizado.addDiretor(diretorRepositorio.buscarPorCodigo(Long.parseLong(codigoDiretor)));
