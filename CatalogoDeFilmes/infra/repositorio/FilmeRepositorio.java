@@ -8,6 +8,7 @@ import CatalogoDeFilmes.modelo.Filme;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class FilmeRepositorio implements InterfaceRepositorio{
     static Long proximoCodigo = 0L;
@@ -17,7 +18,7 @@ public class FilmeRepositorio implements InterfaceRepositorio{
     public boolean gravar(Object objeto) {
         Filme filme = (Filme) objeto;
 
-        List<Diretor> diretores = filme.getDiretores();
+        Set<Diretor> diretores = filme.getDiretores();
         for(Diretor diretor : diretores){
             diretor.addFilmeDirigido(filme);
         }
@@ -31,8 +32,8 @@ public class FilmeRepositorio implements InterfaceRepositorio{
     public boolean atualizar(Long codigo, Object objeto) {
         Filme filme = (Filme) objeto;
         if(listaFilmes.containsKey(codigo)){
-            List<Diretor> diretores = filme.getDiretores();
-            List<Ator> atores = filme.getAtores();
+            Set<Diretor> diretores = filme.getDiretores();
+            Set<Ator> atores = filme.getAtores();
 
             for (Diretor diretor : diretores){
                 if(!diretor.getFilmesDirigidos().contains(filme)){
@@ -55,6 +56,17 @@ public class FilmeRepositorio implements InterfaceRepositorio{
     @Override
     public boolean excluir(Long codigo) {
         if(listaFilmes.containsKey(codigo)){
+            Filme filme = listaFilmes.get(codigo);
+            Set<Ator> atores = filme.getAtores();
+            Set<Diretor> diretores = filme.getDiretores();
+
+            for(Ator ator : atores){
+                ator.excluirFilme(filme);
+            }
+            for(Diretor diretor : diretores){
+                diretor.excluirFilme(filme);
+            }
+
             listaFilmes.remove(codigo);
             return true;
         }

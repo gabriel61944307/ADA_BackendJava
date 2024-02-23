@@ -1,20 +1,22 @@
 package CatalogoDeFilmes.infra.repositorio;
 
+import CatalogoDeFilmes.exception.ModeloException;
 import CatalogoDeFilmes.infra.BD.BancoDeDados;
-import CatalogoDeFilmes.modelo.Ator;
 import CatalogoDeFilmes.modelo.Diretor;
+import CatalogoDeFilmes.modelo.Filme;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class DiretorRepositorio implements InterfaceRepositorio{
     static Long proximoCodigo = 0L;
     private HashMap<Long, Diretor> listaDiretores = BancoDeDados.getDiretores();
+    private HashMap<Long, Filme> listaFilmes = BancoDeDados.getFilmes();
 
     @Override
     public boolean gravar(Object objeto) {
         Diretor diretor = (Diretor) objeto;
         listaDiretores.put(proximoCodigo, diretor);
+        diretor.setCodigo(proximoCodigo);
         proximoCodigo++;
         return true;
     }
@@ -31,6 +33,14 @@ public class DiretorRepositorio implements InterfaceRepositorio{
 
     @Override
     public boolean excluir(Long codigo) {
+        for(Map.Entry<Long, Filme> filme: listaFilmes.entrySet()){
+            Set<Diretor> diretores = filme.getValue().getDiretores();
+            for(Diretor diretor : diretores){
+                if(Objects.equals(diretor.getCodigo(), codigo)){
+                    throw new ModeloException("Não foi possível excluir o diretor pois ele dirige o filme: " + filme.getValue().getNome());
+                }
+            }
+        }
         if(listaDiretores.containsKey(codigo)){
             listaDiretores.remove(codigo);
             return true;

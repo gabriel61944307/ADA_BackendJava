@@ -1,8 +1,5 @@
 package CatalogoDeFilmes.infra.repositorio;
 
-import CatalogoDeFilmes.modelo.Ator;
-import CatalogoDeFilmes.modelo.Diretor;
-
 public interface InterfaceRepositorio {
     boolean gravar(Object objeto);
     boolean atualizar(Long codigo, Object objeto);

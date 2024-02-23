@@ -1,6 +1,5 @@
 package CatalogoDeFilmes.factory;
 
-import CatalogoDeFilmes.modelo.Ator;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.LocalNascimento;
 

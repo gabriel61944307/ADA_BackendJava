@@ -1,20 +1,22 @@
 package CatalogoDeFilmes.infra.repositorio;
 
+import CatalogoDeFilmes.exception.ModeloException;
 import CatalogoDeFilmes.infra.BD.BancoDeDados;
 import CatalogoDeFilmes.modelo.Ator;
-import CatalogoDeFilmes.modelo.Diretor;
+import CatalogoDeFilmes.modelo.Filme;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class AtorRepositorio implements InterfaceRepositorio{
     static Long proximoCodigo = 0L;
     private HashMap<Long, Ator> listaAtores = BancoDeDados.getAtores();
+    private HashMap<Long, Filme> listaFilmes = BancoDeDados.getFilmes();
 
     @Override
     public boolean gravar(Object objeto) {
         Ator ator = (Ator) objeto;
         listaAtores.put(proximoCodigo, ator);
+        ator.setCodigo(proximoCodigo);
         proximoCodigo++;
         return true;
     }
@@ -31,6 +33,14 @@ public class AtorRepositorio implements InterfaceRepositorio{
 
     @Override
     public boolean excluir(Long codigo) {
+        for(Map.Entry<Long, Filme> filme: listaFilmes.entrySet()){
+            Set<Ator> atores = filme.getValue().getAtores();
+            for(Ator ator : atores){
+                if(Objects.equals(ator.getCodigo(), codigo)){
+                    throw new ModeloException("Não foi possível excluir o ator pois ele faz parte do cast do filme: " + filme.getValue().getNome());
+                }
+            }
+        }
         if(listaAtores.containsKey(codigo)){
             listaAtores.remove(codigo);
             return true;

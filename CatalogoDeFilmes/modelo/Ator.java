@@ -1,21 +1,25 @@
 package CatalogoDeFilmes.modelo;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Ator extends Pessoa{
-    private List<Filme> filmesParticipados = new ArrayList<Filme>();
+    private Set<Filme> filmesParticipados = new HashSet<>();
     public Ator(String nome, LocalDate dataNascimento, LocalNascimento localNascimento) {
         super(nome, dataNascimento, localNascimento);
     }
 
-    public List<Filme> getFilmesParticipados() {
+    public Set<Filme> getFilmesParticipados() {
         return filmesParticipados;
     }
 
     public void addFilmeParticipado(Filme filme){
         filmesParticipados.add(filme);
+    }
+
+    public void excluirFilme(Filme filme){
+        filmesParticipados.remove(filme);
     }
     @Override
     public String toString() {

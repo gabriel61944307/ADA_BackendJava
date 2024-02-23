@@ -8,23 +8,27 @@ public abstract class AbstractMenu {
     }
 
     public void execute(){
-        System.out.println("Escolha uma opção:");
-        for(String opcao : opcoes){
-            System.out.println(opcao);
-        }
-        String value = ScannerSingleton.instance().getScanner().nextLine();
-        Integer option = Integer.valueOf(value);
+        try {
+            System.out.println("Escolha uma opção:");
+            for (String opcao : opcoes) {
+                System.out.println(opcao);
+            }
+            String value = ScannerSingleton.instance().getScanner().nextLine();
+            Integer option = Integer.valueOf(value);
 
-        if(validOption(option)){
-            executeOption(option);
+            if (validOption(option)) {
+                executeOption(option);
+            } else if (option == 0) {
+                return;
+            } else {
+                System.out.println("Opção invalida.");
+            }
+            execute();
         }
-        else if(option == 0){
-            return;
+        catch (Exception ex){
+            System.out.println("ERRO: " + ex);
+            execute();
         }
-        else{
-            System.out.println("Opção invalida.");
-        }
-        execute();
     }
 
     protected abstract Boolean validOption(Integer option);

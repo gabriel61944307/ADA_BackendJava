@@ -10,8 +10,13 @@ public class ListarFilmePorNome {
     private static Scanner scanner = ScannerSingleton.instance().getScanner();
 
     public static void execute(){
-        System.out.println("Digite o nome ou parte do nome do filme a ser pesquisado:");
-        String nome = scanner.nextLine();
-        filmeRepositorio.listarPorNome(nome);
+        try {
+            System.out.println("Digite o nome ou parte do nome do filme a ser pesquisado:");
+            String nome = scanner.nextLine();
+            filmeRepositorio.listarPorNome(nome);
+        }catch (Exception ex){
+            System.out.println("ERRO: " + ex);
+            execute();
+        }
     }
 }

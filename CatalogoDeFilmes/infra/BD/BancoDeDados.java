@@ -4,7 +4,7 @@ import CatalogoDeFilmes.modelo.Ator;
 import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.Filme;
 
-import java.util.*;
+import java.util.HashMap;
 
 public class BancoDeDados {
     private static final HashMap<Long, Ator> atores = new HashMap<>();

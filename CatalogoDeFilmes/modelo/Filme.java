@@ -1,18 +1,19 @@
 package CatalogoDeFilmes.modelo;
 
 import java.math.BigDecimal;
-import java.security.DigestException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class Filme {
     private String nome;
     private LocalDate dataLancamento;
     private BigDecimal orcamento;
     private String descricao;
-    private List<Diretor> diretores = new ArrayList<>();
-    private List<Ator> atores = new ArrayList<Ator>();
+    private Set<Diretor> diretores = new HashSet<>();
+    private Set<Ator> atores = new HashSet<>();
 
     public Filme(String nome, LocalDate dataLancamento, BigDecimal orcamento, String descricao, Diretor diretor){
         this.nome = nome;
@@ -41,11 +42,11 @@ public class Filme {
         this.descricao = descricao;
     }
 
-    public List<Diretor> getDiretores() {
+    public Set<Diretor> getDiretores() {
         return diretores;
     }
 
-    public List<Ator> getAtores() {
+    public Set<Ator> getAtores() {
         return atores;
     }
 

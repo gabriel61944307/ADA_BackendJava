@@ -1,5 +1,6 @@
 package CatalogoDeFilmes.factory;
 
+import CatalogoDeFilmes.exception.DiretorException;
 import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
 import CatalogoDeFilmes.infra.repositorio.InterfaceRepositorio;
 import CatalogoDeFilmes.modelo.Diretor;
@@ -14,6 +15,6 @@ public class FilmeFactory {
         if(diretor != null) {
             return new Filme(nome, Data.StringParaData(dataLancamento), new BigDecimal(orcamento), descricao, diretor);
         }
-        return null;
+        throw new DiretorException("Diretor não encontrado na base de dados.");
     }
 }

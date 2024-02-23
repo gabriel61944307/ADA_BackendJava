@@ -1,6 +1,5 @@
 package CatalogoDeFilmes.view.diretor;
 
-import CatalogoDeFilmes.infra.repositorio.AtorRepositorio;
 import CatalogoDeFilmes.infra.repositorio.DiretorRepositorio;
 import CatalogoDeFilmes.view.ScannerSingleton;
 
@@ -11,8 +10,14 @@ public class ExcluirDiretor {
     private static Scanner scanner = ScannerSingleton.instance().getScanner();
 
     public static void execute(){
-        System.out.println("Digite o codigo do diretor:");
-        Long codigo = Long.parseLong(scanner.nextLine());
-        diretorRepositorio.excluir(codigo);
+        try {
+            System.out.println("Digite o codigo do diretor:");
+            Long codigo = Long.parseLong(scanner.nextLine());
+            diretorRepositorio.excluir(codigo);
+        }
+        catch (Exception ex){
+            System.out.println("ERRO: " + ex);
+            execute();
+        }
     }
 }

@@ -3,7 +3,6 @@ package CatalogoDeFilmes.modelo;
 import java.time.LocalDate;
 
 public class Pessoa {
-    static Long proximoCodigo = 0L;
     private Long codigo = -1L;
     private String nome;
     private LocalDate dataNascimento;
@@ -13,8 +12,10 @@ public class Pessoa {
         this.nome = nome;
         this.dataNascimento = dataNascimento;
         this.localNascimento = localNascimento;
-        this.codigo = proximoCodigo;
-        proximoCodigo++;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
     public Long getCodigo() { return codigo; }

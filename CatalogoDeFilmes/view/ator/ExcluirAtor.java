@@ -9,8 +9,14 @@ public class ExcluirAtor {
     private static AtorRepositorio atorRepositorio = new AtorRepositorio();
     private static Scanner scanner = ScannerSingleton.instance().getScanner();
     public static void execute(){
-        System.out.println("Digite o codigo do ator:");
-        Long codigo = Long.parseLong(scanner.nextLine());
-        atorRepositorio.excluir(codigo);
+        try {
+            System.out.println("Digite o codigo do ator:");
+            Long codigo = Long.parseLong(scanner.nextLine());
+            atorRepositorio.excluir(codigo);
+        }
+        catch (Exception ex){
+            System.out.println("ERRO: " + ex);
+            execute();
+        }
     }
 }

@@ -1,10 +1,6 @@
 package CatalogoDeFilmes.view.diretor;
 
 import CatalogoDeFilmes.view.AbstractMenu;
-import CatalogoDeFilmes.view.ator.CadastrarAtor;
-import CatalogoDeFilmes.view.ator.EditarAtor;
-import CatalogoDeFilmes.view.ator.ExcluirAtor;
-import CatalogoDeFilmes.view.ator.ListarAtor;
 
 public class MenuDiretor extends AbstractMenu {
     public MenuDiretor() {

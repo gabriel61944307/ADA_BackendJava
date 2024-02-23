@@ -4,6 +4,12 @@ import CatalogoDeFilmes.infra.repositorio.AtorRepositorio;
 public class ListarAtor {
     private static AtorRepositorio atorRepositorio = new AtorRepositorio();
     public static void execute(){
-        atorRepositorio.listarTodos();
+        try {
+            atorRepositorio.listarTodos();
+        }
+        catch (Exception ex){
+            System.out.println("ERRO: " + ex);
+            execute();
+        }
     }
 }
