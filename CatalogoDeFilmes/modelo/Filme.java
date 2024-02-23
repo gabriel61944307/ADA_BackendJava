@@ -65,11 +65,11 @@ public class Filme {
         informacoes += "Descrição: " + this.descricao + "\n";
         informacoes += "Diretores:\n";
         for(Diretor diretor: diretores){
-            informacoes += diretor.getNome() + "\n";
+            informacoes += "    - " + diretor.getNome() + "\n";
         }
         informacoes += "Atores:\n";
         for(Ator ator : atores){
-            informacoes += ator.getNome() + "\n";
+            informacoes += "    - " + ator.getNome() + "\n";
         }
         return  informacoes;
     }

@@ -6,17 +6,22 @@ import CatalogoDeFilmes.modelo.Diretor;
 import CatalogoDeFilmes.modelo.Filme;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class FilmeRepositorio implements InterfaceRepositorio{
     static Long proximoCodigo = 0L;
     private HashMap<Long, Filme> listaFilmes = BancoDeDados.getFilmes();
-    private InterfaceRepositorio atorRepositorio = new AtorRepositorio();
-    private InterfaceRepositorio diretorRepositorio = new DiretorRepositorio();
 
     @Override
     public boolean gravar(Object objeto) {
         Filme filme = (Filme) objeto;
+
+        List<Diretor> diretores = filme.getDiretores();
+        for(Diretor diretor : diretores){
+            diretor.addFilmeDirigido(filme);
+        }
+
         listaFilmes.put(proximoCodigo, filme);
         proximoCodigo++;
         return true;
@@ -26,6 +31,21 @@ public class FilmeRepositorio implements InterfaceRepositorio{
     public boolean atualizar(Long codigo, Object objeto) {
         Filme filme = (Filme) objeto;
         if(listaFilmes.containsKey(codigo)){
+            List<Diretor> diretores = filme.getDiretores();
+            List<Ator> atores = filme.getAtores();
+
+            for (Diretor diretor : diretores){
+                if(!diretor.getFilmesDirigidos().contains(filme)){
+                    diretor.addFilmeDirigido(filme);
+                }
+            }
+
+            for(Ator ator : atores){
+                if(!ator.getFilmesParticipados().contains(filme)){
+                    ator.addFilmeParticipado(filme);
+                }
+            }
+
             listaFilmes.put(codigo, filme);
             return true;
         }
