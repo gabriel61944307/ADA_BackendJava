@@ -21,7 +21,7 @@ public abstract class Cliente {
         return nome;
     }
 
-    public String getIdentificador() {
+    protected String getIdentificador() {
         return identificador;
     }
 
