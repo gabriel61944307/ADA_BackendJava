@@ -5,12 +5,12 @@ import dominio.PessoaJuridica;
 
 import java.util.Collection;
 
-public class PessoaJuridicaService implements Service {
+public class PessoaJuridicaService implements Service<PessoaJuridica> {
     static private final BD<String, PessoaJuridica> bancoPessoasJuridicas = new BD<>();
+
     @Override
-    public void salvar(Object objeto) {
-        PessoaJuridica clienteJuridico = (PessoaJuridica) objeto;
-        bancoPessoasJuridicas.salvar(clienteJuridico.getCnpj(), clienteJuridico);
+    public void salvar(PessoaJuridica objeto) {
+        bancoPessoasJuridicas.salvar(objeto.getCnpj(), objeto);
     }
 
     @Override
@@ -29,8 +29,8 @@ public class PessoaJuridicaService implements Service {
     }
 
     @Override
-    public void alterar(String identificador, Object objeto) {
-        PessoaJuridica clienteJuridico = (PessoaJuridica) objeto;
-        bancoPessoasJuridicas.alterar(identificador, clienteJuridico);
+    public void alterar(String identificador, PessoaJuridica objeto) {
+        bancoPessoasJuridicas.alterar(identificador, objeto);
     }
+
 }

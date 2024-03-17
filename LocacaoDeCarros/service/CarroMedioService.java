@@ -3,23 +3,38 @@ package service;
 import BancoDeDados.BD;
 import dominio.CarroMedio;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-public class CarroMedioService implements Service{
+public class CarroMedioService implements Service<CarroMedio>, InterfaceCarro<CarroMedio>{
     static  private final BD<String, CarroMedio> bancoCarroMedio = new BD<>();
+
+
     @Override
-    public void salvar(Object objeto) {
-        CarroMedio carro = (CarroMedio) objeto;
+    public List<CarroMedio> buscarCarro(String nome) {
+        List<CarroMedio> carrosComEsseNome = new ArrayList<>();
+
+        for(CarroMedio carro : bancoCarroMedio.buscarTodos()){
+            if(carro.getNome().contains(nome))
+                carrosComEsseNome.add(carro);
+        }
+
+        return carrosComEsseNome;
+    }
+
+    @Override
+    public void salvar(CarroMedio carro) {
         bancoCarroMedio.salvar(carro.getPlaca(), carro);
     }
 
     @Override
-    public Collection buscarTodos() {
+    public Collection<CarroMedio> buscarTodos() {
         return bancoCarroMedio.buscarTodos();
     }
 
     @Override
-    public Object buscar(String identificador) {
+    public CarroMedio buscar(String identificador) {
         return bancoCarroMedio.buscar(identificador);
     }
 
@@ -29,8 +44,7 @@ public class CarroMedioService implements Service{
     }
 
     @Override
-    public void alterar(String identificador, Object objeto) {
-        CarroMedio carro = (CarroMedio) objeto;
+    public void alterar(String identificador, CarroMedio carro) {
         bancoCarroMedio.alterar(identificador, carro);
     }
 }

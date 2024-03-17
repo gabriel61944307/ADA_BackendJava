@@ -1,26 +1,39 @@
 package service;
 
 import BancoDeDados.BD;
-import dominio.CarroPequeno;
 import dominio.CarroSUV;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-public class CarroSUVService implements Service{
+public class CarroSUVService implements Service<CarroSUV>, InterfaceCarro<CarroSUV>{
     static  private final BD<String, CarroSUV> bancoCarroSUV = new BD<>();
+
     @Override
-    public void salvar(Object objeto) {
-        CarroSUV carro = (CarroSUV) objeto;
+    public List<CarroSUV> buscarCarro(String nome) {
+        List<CarroSUV> carrosComEsseNome = new ArrayList<>();
+
+        for(CarroSUV carro : bancoCarroSUV.buscarTodos()){
+            if(carro.getNome().contains(nome))
+                carrosComEsseNome.add(carro);
+        }
+
+        return carrosComEsseNome;
+    }
+
+    @Override
+    public void salvar(CarroSUV carro) {
         bancoCarroSUV.salvar(carro.getPlaca(), carro);
     }
 
     @Override
-    public Collection buscarTodos() {
+    public Collection<CarroSUV> buscarTodos() {
         return bancoCarroSUV.buscarTodos();
     }
 
     @Override
-    public Object buscar(String identificador) {
+    public CarroSUV buscar(String identificador) {
         return bancoCarroSUV.buscar(identificador);
     }
 
@@ -30,8 +43,7 @@ public class CarroSUVService implements Service{
     }
 
     @Override
-    public void alterar(String identificador, Object objeto) {
-        CarroSUV carro = (CarroSUV) objeto;
+    public void alterar(String identificador, CarroSUV carro) {
         bancoCarroSUV.alterar(identificador, carro);
     }
 }

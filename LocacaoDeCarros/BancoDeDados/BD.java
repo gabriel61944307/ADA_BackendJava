@@ -8,9 +8,13 @@ public class BD <K, V>{
     private Map<K, V> objetos = new HashMap<>();
 
     public void salvar(K key, V objeto){
-        this.objetos.put(key, objeto);
+        if(!objetos.containsKey(key))
+            this.objetos.put(key, objeto);
     }
     public Collection<V> buscarTodos(){ return this.objetos.values(); }
+    public java.util.Set<K> getChaves() {
+        return this.objetos.keySet();
+    }
 
     public V buscar(K identificador){
         if(objetos.containsKey(identificador)) return objetos.get(identificador);

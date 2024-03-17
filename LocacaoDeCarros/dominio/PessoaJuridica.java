@@ -8,4 +8,15 @@ public class PessoaJuridica extends Cliente{
     public String getCnpj(){
         return super.getIdentificador();
     }
+
+    @Override
+    public String toString() {
+        String impressao = this.getCnpj() + " : " + this.getNome();
+
+        for(Veiculo carro : this.getHistoricoVeiculosAlugados()){
+            impressao += "\n" + carro.getNome();
+        }
+
+        return impressao;
+    }
 }

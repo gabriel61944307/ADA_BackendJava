@@ -2,14 +2,21 @@ package dominio;
 
 public abstract class Veiculo {
     private String placa;
+    private String nome;
     private boolean alugado = false;
     private Double kmPorL;
-    public Veiculo(String placa){
+    public Veiculo(String nome, String placa, Double kmPorL){
+        this.nome = nome;
         this.placa = placa;
+        this.kmPorL = kmPorL;
     }
 
     public String getPlaca() {
         return placa;
+    }
+
+    public String getNome() {
+        return nome;
     }
 
     public boolean isAlugado() {

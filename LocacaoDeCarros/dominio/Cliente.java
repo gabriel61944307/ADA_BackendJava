@@ -6,7 +6,8 @@ import java.util.List;
 public abstract class Cliente {
     private String nome;
     private String identificador;
-    private List<Veiculo> veiculosAlugados = new ArrayList<>();
+    private List<Veiculo> historicoVeiculosAlugados = new ArrayList<>();
+    private List<Veiculo> veiculosAlugadosHoje = new ArrayList<>();
 
     public Cliente(String nome, String identificador){
         this.nome = nome;
@@ -24,10 +25,19 @@ public abstract class Cliente {
     }
 
     public void addVeiculo(Veiculo veiculo){
-        veiculosAlugados.add(veiculo);
+        veiculosAlugadosHoje.add(veiculo);
+        historicoVeiculosAlugados.add(veiculo);
     }
 
-    public List<Veiculo> getVeiculosAlugados() {
-        return veiculosAlugados;
+    public void devolverVeiculo(Veiculo veiculo){
+        veiculosAlugadosHoje.remove(veiculo);
+    }
+
+    public List<Veiculo> getHistoricoVeiculosAlugados() {
+        return historicoVeiculosAlugados;
+    }
+
+    public List<Veiculo> getVeiculosAlugadosHoje() {
+        return veiculosAlugadosHoje;
     }
 }
