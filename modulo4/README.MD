@@ -1,4 +1,4 @@
-## Para executar esse projeti é necessário seguir alguns passos:
+## Para executar esse projeto é necessário seguir alguns passos:
 
 ### 1: Executar o comando docker-compose up na raiz do projeto
 #####  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; O arquivo docker-compose.yml na raiz do projeto contem as especificações do container que suporta a aplicação
