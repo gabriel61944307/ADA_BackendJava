@@ -1,7 +1,7 @@
 ## ADA_BackendJava
 ### Repositório para armazenar código relacionado ao curso de Java da ADA.
 
-<br><br>
+<br>
 
 #### Módulo 1: Agenda.
 Projeto com entradas em terminal e Banco de Dados em arquivo.
